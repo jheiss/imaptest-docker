@@ -1,12 +1,10 @@
-# ImapTest currently only provides an aarch64 build for Debian 13, which
-# hasn't been released yet. So we use the named "trixie" tag until 13 is
-# released.
-FROM debian:trixie
+FROM debian:13
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     curl \
     git \
+    libpcre2-32-0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
